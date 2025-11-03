@@ -1,13 +1,16 @@
-GRANT SELECT, INSERT, UPDATE, DELETE, 
-ON base_usuarios.
-TO root@localhost
+GRANT SELECT, INSERT, UPDATE, DELETE 
+ON base_usuarios.* 
+TO 'root'@'localhost';
 
 GRANT SELECT, INSERT, UPDATE, DELETE, FILE,
       CREATE, ALTER, DROP, INDEX, LOCK TABLES,
-TRIGGER,CREATE ROUTINE, ALTER ROUTINE, EXECUTE
-ON base_usuarios.
-TO root@localhost
-WITH GRANT OPTION; 
+      TRIGGER, CREATE ROUTINE, ALTER ROUTINE, EXECUTE
+ON base_usuarios.* 
+TO 'root'@'localhost'
+WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
 
 explicación de cada permiso
 el usuario tiene permisos para mostrar tablas(select), añadir contenido(insert), actualizar contenido (update) y borrar datos propios(delete)
@@ -15,3 +18,4 @@ el usuario tiene permisos para mostrar tablas(select), añadir contenido(insert)
 el admin tiene los mismos que el usuario pero se añaden mas como la creación(create), la modificación(alter), la eliminación (drop),creación o eliminación de índices(index), bloquear tablas para evitar cambios malos en el funcionamiento(lock tables), añadir una respuesta automática a cierto evento(trigger), creación de funciones y procedimientos y almacenados (create routine), modificar lo antes dicho(alter routine), ejecutarlas(execute)
 
 grant option permite que los administradores de la cooperativa puedan asignar permisos que ya tienen ellos mismos a usuarios normales con el fin de añadir un nuevo administrador si se quiere o necesita
+
